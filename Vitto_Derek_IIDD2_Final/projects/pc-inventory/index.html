@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PC Parts Inventory Manager | Derek Vitto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar-inner">
+      <h1>PC Parts Inventory</h1>
+      <a href="../../index.html">← Portfolio</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" aria-label="Inventory summary">
+      <div><span>Total items</span><strong id="s-items">0</strong></div>
+      <div><span>Units in stock</span><strong id="s-units">0</strong></div>
+      <div><span>Stock value</span><strong id="s-value">₱0</strong></div>
+      <div class="warn"><span>Low stock</span><strong id="s-low">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <form id="form" class="form" autocomplete="off">
+        <h2 id="form-title">Add a part</h2>
+        <input type="hidden" id="edit-id">
+        <label>Part name<input id="f-name" required placeholder="e.g. Kingston 8GB DDR4"></label>
+        <label>Category
+          <select id="f-cat">
+            <option>Processor</option><option>Memory</option><option>Storage</option>
+            <option>Graphics card</option><option>Power supply</option><option>Peripheral</option>
+          </select>
+        </label>
+        <label>Price (₱)<input id="f-price" type="number" min="0" step="1" required></label>
+        <label>Quantity<input id="f-qty" type="number" min="0" step="1" required></label>
+        <label>Reorder level<input id="f-reorder" type="number" min="0" step="1" required value="3"></label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary" id="save">Add part</button>
+          <button type="button" class="btn" id="cancel" hidden>Cancel</button>
+        </div>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
+
+      <div class="table-area">
+        <div class="tools">
+          <input type="search" id="search" placeholder="Search parts or category" aria-label="Search parts">
+          <label class="check"><input type="checkbox" id="only-low"> Low stock only</label>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th>Part</th><th>Category</th><th class="num">Price</th><th class="num">Qty</th><th>Status</th><th><span class="sr">Actions</span></th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="note">Data is saved in your browser. The matching MySQL table design is in <a href="schema.sql">schema.sql</a>.</p>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
