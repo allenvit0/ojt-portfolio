@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kapehan Café Kiosk | Derek Vitto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="kiosk">
+    <main class="menu">
+      <header class="menu-head">
+        <div>
+          <p class="brand">Kapehan</p>
+          <h1>What would you like today?</h1>
+        </div>
+        <a class="back" href="../../index.html">← Portfolio</a>
+      </header>
+
+      <nav class="tabs" id="tabs" aria-label="Menu categories"></nav>
+      <section class="grid" id="grid" aria-live="polite"></section>
+    </main>
+
+    <aside class="cart" aria-label="Your order">
+      <h2>Your order</h2>
+      <ul class="cart-list" id="cart"></ul>
+      <p class="empty" id="empty">Tap an item to add it to your order.</p>
+      <dl class="totals">
+        <div><dt>Items</dt><dd id="count">0</dd></div>
+        <div class="grand"><dt>Total</dt><dd id="total">₱0</dd></div>
+      </dl>
+      <button type="button" class="place" id="place" disabled>Place order</button>
+      <p class="confirm" id="confirm" hidden></p>
+    </aside>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
